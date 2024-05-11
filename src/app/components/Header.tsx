@@ -1,7 +1,11 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import React from 'react'
 function Header() {
+  
+  const [isMenuOpen, setMenuOpen] = React.useState(false)
+
   return (
     <header>
       <div className="header-section">
@@ -17,7 +21,7 @@ function Header() {
                 />
               </Link>
             </div>
-            <ul className="nav-list">
+            <ul className={isMenuOpen ? "nav-list active" : "nav-list"}>
               <li className="nav-list-item">
                 <Link href="#skills">Skills</Link>
               </li>
@@ -31,7 +35,11 @@ function Header() {
                 <Link href="#contactMe">Contact Me</Link>
               </li>
             </ul>
-            <button className="burger-menu" type="button">
+            <button
+              className="burger-menu"
+              type="button"
+              onClick={() => setMenuOpen((isOpen) => !isOpen)}
+            >
               <Image
                 className="burger-menu"
                 src={"/burger-menu.svg"}
