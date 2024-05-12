@@ -36,16 +36,13 @@ function Header() {
               </li>
             </ul>
             <button
-              className="burger-menu"
+              className={isMenuOpen ? "burger-menu active" : "burger-menu"}
               type="button"
               onClick={() => setMenuOpen((isOpen) => !isOpen)}
             >
-              <Image
-                className="burger-menu"
-                src={"/burger-menu.svg"}
-                alt={"burger-menu"}
-                fill={true}
-              />
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
             </button>
           </nav>
         </div>
